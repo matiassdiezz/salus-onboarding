@@ -279,6 +279,22 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .program {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: 1px;
+      margin-bottom: 72px;
+      overflow: hidden;
+      color: #fff;
+      background: #7dd3fc;
+      border-radius: 12px;
+    }
+
+    .program-phase { padding: 28px 32px; background: var(--primary); }
+    .program-phase.delivery { background: var(--primary-dark); }
+    .program-phase strong { display: block; font-size: 1.35rem; line-height: 1.2; }
+    .program-phase span { display: block; margin-top: 8px; color: #dbeafe; }
+
     .cadence-note {
       max-width: 72ch;
       margin: -12px 0 30px;
@@ -468,6 +484,7 @@
       .agenda-item strong { display: block; line-height: 1.25; }
       .agenda-item span { display: block; margin-top: 5px; color: var(--muted); font-size: 0.9rem; }
       .decision-grid { grid-template-columns: 1fr; gap: 54px; }
+      .program { grid-template-columns: 1fr; }
       .calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .calendar-week:nth-child(2) { border-right: 0; }
       .calendar-week:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -522,6 +539,17 @@
     </header>
 
     <div class="content">
+      <section class="program" aria-label="Duración total del proyecto">
+        <div class="program-phase">
+          <strong>Mes 1 · Discovery</strong>
+          <span>Agosto: alcance, operación, arquitectura y roadmap aprobados.</span>
+        </div>
+        <div class="program-phase delivery">
+          <strong>Meses 2–5 · Construcción del MVP</strong>
+          <span>Cuatro meses de desarrollo, validación e integraciones. Duración total del proyecto: cinco meses.</span>
+        </div>
+      </section>
+
       <section class="cadence" aria-labelledby="cadence-title">
         <div class="section-head">
           <div><h2 id="cadence-title">Cadencia propuesta</h2></div>
@@ -664,7 +692,7 @@
               <div class="cell"></div><div class="cell"></div><div class="cell bar-start"></div><div class="cell bar-mid"></div><div class="cell bar-end"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
             </div>
             <div class="task">
-              <div class="task-info"><strong>Build, buy o partner</strong><span>Opciones y spikes técnicos prioritarios</span></div>
+              <div class="task-info"><strong>Responsabilidad por componente</strong><span>Qué construye Koi, qué contrata SALUS y qué se integra</span></div>
               <div class="cell"></div><div class="cell"></div><div class="cell bar-start"></div><div class="cell bar-mid"></div><div class="cell bar-end"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
             </div>
             <div class="task">
@@ -672,7 +700,7 @@
               <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell milestone-cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
             </div>
 
-            <div class="phase green"><span>Semana 4 · Alcance y compromiso</span><small>Del diseño al roadmap de cinco meses</small></div>
+            <div class="phase green"><span>Semana 4 · Alcance y compromiso</span><small>Del diseño al plan de cuatro meses de construcción</small></div>
             <div class="task">
               <div class="task-info"><strong>MVP end-to-end</strong><span>In, out, no-goes y readiness</span></div>
               <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell bar-start green-bar"></div><div class="cell bar-mid green-bar"></div><div class="cell bar-end green-bar"></div><div class="cell"></div><div class="cell"></div>
@@ -682,7 +710,7 @@
               <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell bar-start green-bar"></div><div class="cell bar-mid green-bar"></div><div class="cell bar-end green-bar"></div><div class="cell"></div>
             </div>
             <div class="task">
-              <div class="task-info"><strong>Roadmap y dependencias</strong><span>Cinco meses, hitos, perfiles y gates</span></div>
+              <div class="task-info"><strong>Roadmap y dependencias</strong><span>Cuatro meses de construcción, hitos, perfiles y gates</span></div>
               <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell bar-start green-bar"></div><div class="cell bar-mid green-bar"></div><div class="cell bar-mid green-bar"></div><div class="cell bar-end green-bar"></div>
             </div>
             <div class="task">
@@ -716,13 +744,13 @@
           <div class="mobile-week">
             <h3>Semana 3 · Producto y arquitectura</h3>
             <div class="agenda-item"><div class="agenda-date">17–18</div><div><strong>Arquitectura funcional e información</strong><span>Dominios, entidades, eventos y ownership.</span></div></div>
-            <div class="agenda-item"><div class="agenda-date">19–20</div><div><strong>Reglas, SLA y decisiones técnicas</strong><span>Controles, excepciones y opciones build/buy/partner.</span></div></div>
+            <div class="agenda-item"><div class="agenda-date">19–20</div><div><strong>Reglas, SLA y responsabilidades</strong><span>Controles, excepciones, componentes propios, servicios contratados e integraciones.</span></div></div>
             <div class="agenda-item"><div class="agenda-date">Vie 21</div><div><strong>Readout de arquitectura</strong><span>Diseño funcional y spikes validados.</span></div></div>
           </div>
           <div class="mobile-week">
             <h3>Semana 4 · Alcance y compromiso</h3>
             <div class="agenda-item"><div class="agenda-date">24–25</div><div><strong>MVP y épicas</strong><span>In, out, no-goes y criterios de aceptación.</span></div></div>
-            <div class="agenda-item"><div class="agenda-date">26–27</div><div><strong>Roadmap, métricas y gobernanza</strong><span>Hitos de cinco meses, dependencias y cadencias.</span></div></div>
+            <div class="agenda-item"><div class="agenda-date">26–27</div><div><strong>Roadmap, métricas y gobernanza</strong><span>Cuatro meses de construcción, dependencias y cadencias.</span></div></div>
             <div class="agenda-item"><div class="agenda-date">Vie 28</div><div><strong>Cierre del onboarding</strong><span>Readout ejecutivo y baseline aprobado.</span></div></div>
           </div>
         </div>
@@ -753,7 +781,7 @@
             <div class="deliverable"><span class="check">✓</span> Blueprints del ecosistema operativo</div>
             <div class="deliverable"><span class="check">✓</span> Catálogo de integraciones y riesgos</div>
             <div class="deliverable"><span class="check">✓</span> Arquitectura funcional y modelo de información</div>
-            <div class="deliverable"><span class="check">✓</span> MVP, épicas y roadmap de cinco meses</div>
+            <div class="deliverable"><span class="check">✓</span> MVP, épicas y roadmap de cuatro meses de construcción</div>
           </div>
         </div>
       </section>
